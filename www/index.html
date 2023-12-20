@@ -103,6 +103,17 @@
             showResults(results);
         })
     }
+
+    function searchattackGT() {
+        let attack = parseInt($("#attack").val());
+        let TestDataClass = ncmb.DataStore(db);
+        TestDataClass 
+        .greaterThan("attack", attack) 
+        .fetchAll() 
+        .then(function(results) {
+            showResults(results);
+        }) 
+    }
     
     
   </script>
@@ -134,7 +145,7 @@
   <div id="button">
     <button class="btn" onclick="searchattackLT()">attack &lt;</button>
     <button class="btn" onclick="searchattack()">attack</button>
-    <button class="btn" onclick="searchattackSGT()">attack &gt;</button>
+    <button class="btn" onclick="searchattackGT()">attack &gt;</button>
   </div>
   <div id="message">message area</div>
 </body>
