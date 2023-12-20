@@ -82,13 +82,14 @@
             showResults(results);
         }) 
     }
-    function OVR() {
-        let ovr = parseInt($("#ovr").val());
+    function searchattack() {
+        let attack = parseInt($("#attack").val());
         let TestDataClass = ncmb.DataStore(db);
-        ovr=attack+defence;
-        TestDataClass.order("ovr", ovr).fetchAll()
+        TestDataClass
+        .equalTo("attack", attack) 
+        .fetchAll() 
         .then(function(results) {
-          showResults(results);;
+            showResults(results);
         }) 
     }
     
@@ -106,6 +107,10 @@
     <label for="level">level:</label>
     <input id="level" type="number" placeholder="monster level">
   </div>
+  <div>
+    <label for="attack">attack:</label>
+    <input id="attack" type="number" placeholder="monster attack">
+  </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
@@ -116,7 +121,7 @@
     <button class="btn" onclick="searchLevelGT()">Level &gt;</button>
   </div>
   <div id="button">
-    <button class="btn" onclick="searchattack">attack</button>
+    <button class="btn" onclick="searchattack()">attack</button>
   </div>
   <div id="message">message area</div>
 </body>
