@@ -28,6 +28,7 @@
       let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th><th>ovr</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
+        results[i].ovr=results[i].attack+ results[i].defence;
         msg += "<tr>";
         msg += "<td>" + results[i].name + "</td>";
         msg += "<td class='num'>" + results[i].level + "</td>";
@@ -116,11 +117,13 @@
         }) 
     }
      function ovr() {
-      let ovr = attack+defence;
+      let ovr = (results[i].attack+results[i].defence);
+      
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.order("ovr", false).fetchAll()
+      TestDataClass.order("name", false).fetchAll()
         .then(function(results) {
           showResults(results);
+          
         })
     }
    
