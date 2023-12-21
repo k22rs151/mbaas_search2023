@@ -94,28 +94,36 @@
         }) 
     }
 
-    function searchattackLT() {
+    function searchattackLTE() {
         let attack = parseInt($("#attack").val());
         let TestDataClass = ncmb.DataStore(db);
         TestDataClass 
-        .lessThan("attack", attack) 
+        .lessThanOrEqualTo("attack", attack) 
         .fetchAll() 
         .then(function(results) {
             showResults(results);
         })
     }
 
-    function searchattackGT() {
+    function searchattackGTE() {
         let attack = parseInt($("#attack").val());
         let TestDataClass = ncmb.DataStore(db);
         TestDataClass 
-        .greaterThan("attack", attack) 
+        .greaterThanOrEqualTo("attack", attack) 
         .fetchAll() 
         .then(function(results) {
             showResults(results);
         }) 
     }
-
+     function ovr() {
+      let ovr = attack+defence;
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.order("ovr", false).fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+    }
+   
     
   </script>
 </head>
@@ -144,9 +152,9 @@
     <button class="btn" onclick="searchLevelGT()">Level &gt;</button>
   </div>
   <div id="button">
-    <button class="btn" onclick="searchattackLT()">attack &lt;</button>
+    <button class="btn" onclick="searchattackLTE()">attack &lt;</button>
     <button class="btn" onclick="searchattack()">attack</button>
-    <button class="btn" onclick="searchattackGT()">attack &gt;</button>
+    <button class="btn" onclick="searchattackGTE()">attack &gt;</button>
   </div>
   <div id="button">
     <button class="btn" onclick="ovr()">OVR</button>
