@@ -134,12 +134,10 @@
         }) 
     }
      function ovr() {
-      let ovr = (results[i].attack+results[i].defence);
-      
       let TestDataClass = ncmb.DataStore(db);
       TestDataClass.order("name", false).fetchAll()
         .then(function(results) {
-          showResults(results);
+          showResults2(results);
           
         })
     }
