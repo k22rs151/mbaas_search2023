@@ -141,6 +141,38 @@
           
         })
     }
+    function searchdefence() {
+        let defence = parseInt($("#defence").val());
+        let TestDataClass = ncmb.DataStore(db);
+        TestDataClass
+        .equalTo("defence", defence) 
+        .fetchAll() 
+        .then(function(results) {
+            showResults(results);
+        }) 
+    }
+
+    function searchdefenceLTE() {
+        let defence = parseInt($("#defence").val());
+        let TestDataClass = ncmb.DataStore(db);
+        TestDataClass 
+        .lessThanOrEqualTo("defence", defence) 
+        .fetchAll() 
+        .then(function(results) {
+            showResults(results);
+        })
+    }
+
+    function searchdefenceGTE() {
+        let defence = parseInt($("#defence").val());
+        let TestDataClass = ncmb.DataStore(db);
+        TestDataClass 
+        .greaterThanOrEqualTo("defence", defence) 
+        .fetchAll() 
+        .then(function(results) {
+            showResults(results);
+        }) 
+    }
 
    
     
